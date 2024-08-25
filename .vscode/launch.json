@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-AlfacarApplication<alfacar>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.luchiari.alfacar.AlfacarApplication",
+            "projectName": "alfacar",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
