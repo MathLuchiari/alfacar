@@ -1,4 +1,54 @@
-<div class="app-page-container">
+<div class="app__page">
+  <mat-toolbar class="app__toolbar">
+    <span class="app__title app__title--secondary">AlfaCar</span>
+  </mat-toolbar>
+
+  <mat-drawer-container
+    class="app__page--container"
+    [hasBackdrop]="false"
+    autosize>
+
+    <mat-drawer #side_menu
+      class="app__side-menu"
+      mode="side"
+      [opened]="true"
+    >
+      <div
+        class="app__side-menu--content"
+      >
+        <div class="app__side-menu--btn-container">
+          <button mat-button
+            class="app__btn--side-menu-toggle"
+            (click)="toggleSideMenu()">
+            <mat-icon class="app__btn app__btn--side-menu-toggle-icon">menu</mat-icon>
+          </button>
+        </div>
+
+        <div class="app__side-menu--btn-container">
+          <button mat-button class="app__btn--side-menu">
+            <mat-icon class="app__btn--side-menu-icon">home</mat-icon>
+            <span class="app__btn--side-menu-text">Home</span>
+          </button>
+        </div>
+        <div class="app__side-menu--btn-container">
+          <button mat-button class="app__btn--side-menu">
+            <mat-icon class="app__btn--side-menu-icon">person</mat-icon>
+            <span class="app__btn--side-menu-text">Clientes</span>
+          </button>
+        </div>
+      </div>
+    </mat-drawer>
+
+    <div class="app__page-content">
+      <button type="button" mat-button>
+        Toggle sidenav
+      </button>
+    </div>
+  </mat-drawer-container>
+</div>
+
+
+<!-- <div class="app__page-container">
   <mat-toolbar class="app-toolbar">
       <span class="app-main-title">AlfaCar</span>
   </mat-toolbar>
@@ -14,7 +64,7 @@
       [opened]="true">
       <div
         class="app-side-menu-content">
-        <button
+         <button
           mat-fab
           aria-label="Example icon button with a menu icon"
           class="app-btn-toggle-side-menu"
@@ -22,7 +72,11 @@
           <mat-icon>menu</mat-icon>
         </button>
 
-        <button
+        <button mat-button>
+          <mat-icon class="app-btn-toggle-side-menu--icon">menu</mat-icon>
+        </button>
+
+         <button
           mat-icon-button
           aria-label="Example icon button with a vertical three dot icon"
           class="app-btn-toggle-side-menu"
@@ -38,4 +92,4 @@
       </button>
     </div>
   </mat-drawer-container>
-</div>
+</div> -->

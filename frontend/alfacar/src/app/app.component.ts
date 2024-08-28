@@ -22,9 +22,39 @@ import { RouterOutlet } from '@angular/router';
 export class AppComponent {
   title = 'alfacar';
 
-  @ViewChild('side_menu') sideMenu: any;
+  isMenuExpanded: boolean = false;
 
   toggleSideMenu(): void {
-    this.sideMenu
+    const sideMenu = document.getElementsByClassName('app__side-menu')[0];
+    const listBtnTexts: HTMLCollectionOf<HTMLElement> = document.getElementsByClassName('app__btn--side-menu-text') as HTMLCollectionOf<HTMLElement>;
+    const listBtnIcons: HTMLCollectionOf<HTMLElement> = document.getElementsByClassName('app__btn--side-menu-icon') as HTMLCollectionOf<HTMLElement>;
+
+    if( this.isMenuExpanded ) {
+      sideMenu.classList.add('app__side-menu--expanded')
+
+      for (let i=0; i < listBtnTexts.length; i++) {
+        const btnText: HTMLElement = listBtnTexts[i];
+        btnText.style['display'] = '';
+      }
+
+      for (let i=0; i < listBtnIcons.length; i++) {
+        const btnIcon: HTMLElement = listBtnIcons[i];
+        btnIcon.classList.remove('app__btn--side-menu-icon--centered')
+      }
+    } else {
+      sideMenu.classList.remove('app__side-menu--expanded')
+
+      for (let i=0; i < listBtnTexts.length; i++) {
+        const btnTexts: HTMLElement = listBtnTexts[i];
+        btnTexts.style['display'] = 'none'
+      }
+
+      for (let i=0; i < listBtnIcons.length; i++) {
+        const btnIcon: HTMLElement = listBtnIcons[i];
+        btnIcon.classList.add('app__btn--side-menu-icon--centered')
+      }
+    }
+
+    this.isMenuExpanded = !this.isMenuExpanded;
   }
 }

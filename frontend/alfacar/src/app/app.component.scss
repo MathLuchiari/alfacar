@@ -1,60 +1,76 @@
 @use '../styles.scss' as core_style;
 
-.app-page-container {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
+.app {
+  &__toolbar {
+    background-color: core_style.$app-light-background;
+  }
 
-.app-toolbar {
-  background-color: core_style.$app-light-background;
-}
+  &__title {
+    font-weight: 600;
+    color: core_style.$app-light-onbackground-text;
+  }
 
-.app-main-title {
-  font-weight: 600;
-  color: core_style.$app-light-onbackground-text;
-}
+  &__page {
+    display: flex;
+    flex-direction: column;
 
-.app-page-content-container {
-  width: 100%;
-  height: 100%;
-  border: none;
-}
+    height: 100%;
 
-.app-page-content {
-  display: flex;
-  height: 100%;
-  align-items: center;
-  justify-content: center;
-}
+    &--container {
+      flex: 1;
+    }
 
-.app-side-menu {
-  max-height: 100%;
+    &-content {
+      display: flex;
+      height: 100%;
+      align-items: center;
+      justify-content: center;
+    }
+  }
 
-  margin: 1rem;
-  padding: 1rem;
+  &__side-menu {
+    width: auto;
+    max-width: 25%;
 
-  border: none;
-  border-radius: 1rem;
+    padding: 1rem;
 
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  // transform: translateX(1rem)!important;
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 
-  // &-expandend
-}
+    &--content {
+      display: flex;
+      flex-direction: column;
 
-.app-side-menu-content {
-  display: flex;
-  flex-direction: row-reverse;
-}
+      gap: .5rem;
+    }
 
-.app-btn-toggle-side-menu {
-  margin: 1rem;
+    &--btn-container {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
 
-  border-radius: 2rem;
-  box-shadow:none;
-}
+    }
 
-.app-side-menu-content {
+    &--expanded {
+      &:has(button.app__btn--side-menu-toggle) {
+        align-items: flex-end;
+      }
+    }
+  }
 
+  &__btn {
+    &--side-menu {
+      &-toggle-icon {
+        margin: 0!important;
+      }
+
+      &-icon--centered {
+        margin: 0!important;;
+      }
+
+      &-text {
+        transition: all 1s;
+      }
+    }
+  }
 }
