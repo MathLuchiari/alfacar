@@ -1,9 +1,9 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { RouterOutlet } from '@angular/router';
+import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
 
 
 @Component({
@@ -19,42 +19,41 @@ import { RouterOutlet } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'alfacar';
 
   isMenuExpanded: boolean = false;
 
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
+
+  ngOnInit(): void {
+    this.toggleSideMenu();
+  }
+
   toggleSideMenu(): void {
-    const sideMenu = document.getElementsByClassName('app__side-menu')[0];
-    const listBtnTexts: HTMLCollectionOf<HTMLElement> = document.getElementsByClassName('app__btn--side-menu-text') as HTMLCollectionOf<HTMLElement>;
-    const listBtnIcons: HTMLCollectionOf<HTMLElement> = document.getElementsByClassName('app__btn--side-menu-icon') as HTMLCollectionOf<HTMLElement>;
+    const listBtns: HTMLCollectionOf<HTMLElement> = document.getElementsByClassName('app__btn--side-menu') as HTMLCollectionOf<HTMLElement>;
 
-    if( this.isMenuExpanded ) {
-      sideMenu.classList.add('app__side-menu--expanded')
+    for (let i=0; i < listBtns.length; i++) {
+      let childrenElBtn: Array<HTMLElement> = Array.from(listBtns[i].children) as Array<HTMLElement>;
+      let btnText: HTMLElement = childrenElBtn.filter( el => el.classList.contains('mdc-button__label') )[0].children[0] as HTMLElement;
+      let btnIcon: HTMLElement = childrenElBtn.filter( el => el.classList.contains('app__btn--side-menu-icon') )[0] as HTMLElement;
 
-      for (let i=0; i < listBtnTexts.length; i++) {
-        const btnText: HTMLElement = listBtnTexts[i];
-        btnText.style['display'] = '';
-      }
-
-      for (let i=0; i < listBtnIcons.length; i++) {
-        const btnIcon: HTMLElement = listBtnIcons[i];
-        btnIcon.classList.remove('app__btn--side-menu-icon--centered')
-      }
-    } else {
-      sideMenu.classList.remove('app__side-menu--expanded')
-
-      for (let i=0; i < listBtnTexts.length; i++) {
-        const btnTexts: HTMLElement = listBtnTexts[i];
-        btnTexts.style['display'] = 'none'
-      }
-
-      for (let i=0; i < listBtnIcons.length; i++) {
-        const btnIcon: HTMLElement = listBtnIcons[i];
+      if( this.isMenuExpanded ) {
+        btnText.style['display'] = 'none'
         btnIcon.classList.add('app__btn--side-menu-icon--centered')
+      } else {
+        btnText.style['display'] = '';
+        btnIcon.classList.remove('app__btn--side-menu-icon--centered')
       }
     }
 
     this.isMenuExpanded = !this.isMenuExpanded;
+  }
+
+  accessPage(endPoint: string): void {
+    this.router.navigate([endPoint], {relativeTo: this.route})
   }
 }

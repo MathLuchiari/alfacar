@@ -16,7 +16,7 @@
       <div
         class="app__side-menu--content"
       >
-        <div class="app__side-menu--btn-container">
+        <div class="app__side-menu--btn-container app__side-menu--btn-toggle-container">
           <button mat-button
             class="app__btn--side-menu-toggle"
             (click)="toggleSideMenu()">
@@ -31,65 +31,20 @@
           </button>
         </div>
         <div class="app__side-menu--btn-container">
-          <button mat-button class="app__btn--side-menu">
+          <button mat-button class="app__btn--side-menu" (click)="accessPage('clients')">
             <mat-icon class="app__btn--side-menu-icon">person</mat-icon>
             <span class="app__btn--side-menu-text">Clientes</span>
+          </button>
+        </div>
+        <div class="app__side-menu--btn-container">
+          <button mat-button class="app__btn--side-menu">
+            <mat-icon class="app__btn--side-menu-icon">settings</mat-icon>
+            <span class="app__btn--side-menu-text">Configuração</span>
           </button>
         </div>
       </div>
     </mat-drawer>
 
-    <div class="app__page-content">
-      <button type="button" mat-button>
-        Toggle sidenav
-      </button>
-    </div>
+    <router-outlet></router-outlet>
   </mat-drawer-container>
 </div>
-
-
-<!-- <div class="app__page-container">
-  <mat-toolbar class="app-toolbar">
-      <span class="app-main-title">AlfaCar</span>
-  </mat-toolbar>
-
-  <mat-drawer-container
-    class="app-page-content-container"
-    [hasBackdrop]="false"
-    autosize>
-
-    <mat-drawer #side_menu
-      class="app-side-menu"
-      mode="side"
-      [opened]="true">
-      <div
-        class="app-side-menu-content">
-         <button
-          mat-fab
-          aria-label="Example icon button with a menu icon"
-          class="app-btn-toggle-side-menu"
-          (click)="toggleSideMenu()">
-          <mat-icon>menu</mat-icon>
-        </button>
-
-        <button mat-button>
-          <mat-icon class="app-btn-toggle-side-menu--icon">menu</mat-icon>
-        </button>
-
-         <button
-          mat-icon-button
-          aria-label="Example icon button with a vertical three dot icon"
-          class="app-btn-toggle-side-menu"
-          (click)="toggleSideMenu()">
-          <mat-icon>menu</mat-icon>
-        </button>
-      </div>
-    </mat-drawer>
-
-    <div class="app-page-content">
-      <button type="button" mat-button>
-        Toggle sidenav
-      </button>
-    </div>
-  </mat-drawer-container>
-</div> -->
