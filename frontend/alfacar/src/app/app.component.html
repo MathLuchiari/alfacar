@@ -1,95 +1,13 @@
-<div class="app__page">
-  <mat-toolbar class="app__toolbar">
-    <span class="app__title app__title--secondary">AlfaCar</span>
-  </mat-toolbar>
+<div class="po-wrapper">
+  <po-menu
+    [p-collapsed]="true"
+    [p-menus]="menus"
+    [p-automatic-toggle]="true"
+  >
+  </po-menu>
+  <po-toolbar p-title="PO - Human Resources" [p-show-notification]="false"></po-toolbar>
 
-  <mat-drawer-container
-    class="app__page--container"
-    [hasBackdrop]="false"
-    autosize>
-
-    <mat-drawer #side_menu
-      class="app__side-menu"
-      mode="side"
-      [opened]="true"
-    >
-      <div
-        class="app__side-menu--content"
-      >
-        <div class="app__side-menu--btn-container">
-          <button mat-button
-            class="app__btn--side-menu-toggle"
-            (click)="toggleSideMenu()">
-            <mat-icon class="app__btn app__btn--side-menu-toggle-icon">menu</mat-icon>
-          </button>
-        </div>
-
-        <div class="app__side-menu--btn-container">
-          <button mat-button class="app__btn--side-menu">
-            <mat-icon class="app__btn--side-menu-icon">home</mat-icon>
-            <span class="app__btn--side-menu-text">Home</span>
-          </button>
-        </div>
-        <div class="app__side-menu--btn-container">
-          <button mat-button class="app__btn--side-menu">
-            <mat-icon class="app__btn--side-menu-icon">person</mat-icon>
-            <span class="app__btn--side-menu-text">Clientes</span>
-          </button>
-        </div>
-      </div>
-    </mat-drawer>
-
-    <div class="app__page-content">
-      <button type="button" mat-button>
-        Toggle sidenav
-      </button>
-    </div>
-  </mat-drawer-container>
+  <po-page-default [p-title]="menuSelectedTitle">
+    <router-outlet></router-outlet>
+  </po-page-default>
 </div>
-
-
-<!-- <div class="app__page-container">
-  <mat-toolbar class="app-toolbar">
-      <span class="app-main-title">AlfaCar</span>
-  </mat-toolbar>
-
-  <mat-drawer-container
-    class="app-page-content-container"
-    [hasBackdrop]="false"
-    autosize>
-
-    <mat-drawer #side_menu
-      class="app-side-menu"
-      mode="side"
-      [opened]="true">
-      <div
-        class="app-side-menu-content">
-         <button
-          mat-fab
-          aria-label="Example icon button with a menu icon"
-          class="app-btn-toggle-side-menu"
-          (click)="toggleSideMenu()">
-          <mat-icon>menu</mat-icon>
-        </button>
-
-        <button mat-button>
-          <mat-icon class="app-btn-toggle-side-menu--icon">menu</mat-icon>
-        </button>
-
-         <button
-          mat-icon-button
-          aria-label="Example icon button with a vertical three dot icon"
-          class="app-btn-toggle-side-menu"
-          (click)="toggleSideMenu()">
-          <mat-icon>menu</mat-icon>
-        </button>
-      </div>
-    </mat-drawer>
-
-    <div class="app-page-content">
-      <button type="button" mat-button>
-        Toggle sidenav
-      </button>
-    </div>
-  </mat-drawer-container>
-</div> -->
