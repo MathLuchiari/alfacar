@@ -32,7 +32,7 @@ export class WorkshopFormComponent implements OnInit {
 
   workshopId!: string;
   workshopForm: FormGroup = new FormGroup<WorkshopForm>({
-    id: new FormControl('', { nonNullable: true }),
+    _id: new FormControl('', { nonNullable: true }),
     companyName: new FormControl('', { nonNullable: true }),
     companyRegistrationNumber: new FormControl('', { nonNullable: true }),
     state: new FormControl('', { nonNullable: true }),
@@ -46,7 +46,7 @@ export class WorkshopFormComponent implements OnInit {
   });
   workshopSubscription!: Subscription;
   workshop: Workshop = {
-    id: '',
+    _id: '',
     companyName: '',
     companyRegistrationNumber: '',
     address: '',
@@ -92,7 +92,7 @@ export class WorkshopFormComponent implements OnInit {
 
   createForm( workshop: Workshop ) {
     this.workshopForm = new FormGroup<WorkshopForm>({
-      id: new FormControl(workshop.id, { nonNullable: true }),
+      _id: new FormControl(workshop._id, { nonNullable: true }),
       companyName: new FormControl(workshop.companyName, { nonNullable: true }),
       companyRegistrationNumber: new FormControl(workshop.companyRegistrationNumber, { nonNullable: true }),
       state: new FormControl(workshop.state, { nonNullable: true }),
@@ -126,7 +126,19 @@ export class WorkshopFormComponent implements OnInit {
   }
 
   onSave(): void {
-    console.log(this.workshopForm)
+    this.pageSubscriptions.workshop = this.workshopService.create(this.workshopForm.value).subscribe({
+      next: (response: any) => this.onSaveSuccess(response),
+      error: (error: any) => this.onSaveError(error)
+    })
+  }
+
+  onSaveSuccess( response: any ): void {
+    console.log(response)
+    this.poNotificationService.success('Dados da oficina salvos com sucesso!');
+  }
+
+  onSaveError( error: any ): void {
+    this.poNotificationService.error('Falha ao salvar dados da oficina.');
   }
 
   onZipCodeSearch() {

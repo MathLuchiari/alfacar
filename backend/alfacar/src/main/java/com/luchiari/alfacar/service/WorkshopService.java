@@ -61,6 +61,7 @@ public class WorkshopService {
                 recordFound.setAddress(workshopDTO.address());
                 recordFound.setNeighborhood(workshopDTO.neighborhood());
                 recordFound.setZipCode(workshopDTO.zipCode());
+                recordFound.setState(workshopDTO.state());
                 recordFound.setCity(workshopDTO.city());
                 recordFound.setPhoneNumber(workshopDTO.phoneNumber());
                 recordFound.setCellphoneNumber(workshopDTO.cellphoneNumber());

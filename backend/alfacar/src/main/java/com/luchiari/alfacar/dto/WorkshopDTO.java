@@ -13,6 +13,7 @@ public record WorkshopDTO(
     @NotBlank @NotNull @Length(min = 1, max = 254) String address,
     @NotBlank @NotNull @Length(min = 1, max = 254) String neighborhood,
     @NotBlank @NotNull @Length(min = 8, max = 8)   String zipCode,
+    @NotBlank @NotNull @Length(min = 2, max = 2)   String state,
     @NotBlank @NotNull @Length(min = 1, max = 254) String city,
     @NotBlank @NotNull @Length(min = 10, max = 11) String phoneNumber,
     @NotBlank @NotNull @Length(min = 10, max = 11) String cellphoneNumber,

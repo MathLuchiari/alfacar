@@ -18,6 +18,7 @@ public class WorkshopMapper {
             workshop.getAddress(), 
             workshop.getNeighborhood(),
             workshop.getZipCode(),
+            workshop.getState(),
             workshop.getCity(),
             workshop.getPhoneNumber(),
             workshop.getCellphoneNumber(),
@@ -37,6 +38,7 @@ public class WorkshopMapper {
         workshop.setAddress(workshopDTO.address());
         workshop.setNeighborhood(workshopDTO.neighborhood());
         workshop.setZipCode(workshopDTO.zipCode());
+        workshop.setState(workshopDTO.state());
         workshop.setCity(workshopDTO.city());
         workshop.setPhoneNumber(workshopDTO.phoneNumber());
         workshop.setCellphoneNumber(workshopDTO.cellphoneNumber());

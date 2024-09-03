@@ -21,4 +21,16 @@ export class WorkshopService {
   getById(id: string): Observable<Workshop> {
     return this.httpClient.get<Workshop>(`${environment.API}/workshops/${id}`);
   }
+
+  create(workshop: Workshop): Observable<Workshop> {
+    return this.httpClient.post<Workshop>(`${environment.API}/workshops`, workshop);
+  }
+
+  modify(workshop: Workshop): Observable<Workshop> {
+    return this.httpClient.put<Workshop>(`${environment.API}/workshops`, workshop);
+  }
+
+  delete( id: string ): Observable<Workshop> {
+    return this.httpClient.delete<Workshop>(`${environment.API}/workshops/${id}`);
+  }
 }

@@ -1,7 +1,7 @@
 import { FormControl } from "@angular/forms";
 
 export interface WorkshopForm {
-  id: FormControl<string>;
+  _id: FormControl<string>;
   companyName: FormControl<string>;
   companyRegistrationNumber: FormControl<string>;
   address: FormControl<string>;

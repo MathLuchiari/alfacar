@@ -5,7 +5,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import com.luchiari.alfacar.model.Workshop;
 import com.luchiari.alfacar.repository.WorkshopRepository;
 
 @SpringBootApplication

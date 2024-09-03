@@ -42,6 +42,12 @@ public class Workshop {
     
     @NotBlank
     @NotNull
+    @Length(min = 2, max = 2)
+    @Column( length = 2, nullable = false )
+    private String state;
+    
+    @NotBlank
+    @NotNull
     @Length(min = 1, max = 254)
     @Column( length = 254, nullable = false )
     private String neighborhood;
@@ -103,6 +109,14 @@ public class Workshop {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+    
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
     }
 
     public String getNeighborhood() {
