@@ -1,1 +1,14 @@
-<p>workshop-list works!</p>
+<po-page-default
+    p-title="Oficinas">
+
+    <po-table
+      [p-striped]="true"
+      [p-columns]="columns"
+      [p-items]="owners.items"
+      [p-loading]="false"
+      [p-show-more-disabled]="true"
+      (p-show-more)="showMore()"
+      [p-loading-show-more]="false">
+    </po-table>
+
+</po-page-default>
