@@ -32,7 +32,7 @@ export class AppComponent {
     },
     {
       label: 'Dados Oficina',
-      action: this.onClick.bind(this, 'workshops/new'),
+      action: this.onClick.bind(this, 'workshops'),
       icon: 'ph ph-wrench',
       shortLabel: 'Oficina'
     }

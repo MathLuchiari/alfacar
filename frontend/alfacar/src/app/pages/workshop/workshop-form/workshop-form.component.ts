@@ -44,7 +44,7 @@ export class WorkshopFormComponent implements OnInit {
     cellphoneNumber: new FormControl('', { nonNullable: true }),
     email: new FormControl('', { nonNullable: true })
   });
-  workshopSubscription!: Subscription;
+
   workshop: Workshop = {
     _id: '',
     companyName: '',

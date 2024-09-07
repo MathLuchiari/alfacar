@@ -1,14 +1,63 @@
 <po-page-default
     p-title="Oficinas">
 
-    <po-table
+    <po-table #workshopTable
       [p-striped]="true"
+      [p-actions]="tableActions"
+      [p-actions-right]="true"
       [p-columns]="columns"
-      [p-items]="owners.items"
-      [p-loading]="false"
-      [p-show-more-disabled]="true"
-      (p-show-more)="showMore()"
-      [p-loading-show-more]="false">
+      [p-items]="workshops"
+      [p-loading]="isLoading"
+      [p-show-more-disabled]="isShowMoreDisabled"
+      (p-show-more)="loadMore()"
+      [p-loading-show-more]="isLoading"
+      [p-hide-table-search]="false"
+      [p-sort]="true"
+      [p-spacing]="tableSpacing">
     </po-table>
 
 </po-page-default>
+
+<!-- <po-page-dynamic-table
+  p-auto-router
+  p-concat-filters
+  p-keep-filters
+  p-title="People"
+  p-spacing="large"
+  [p-height]="300"
+  [p-hide-columns-manager]="true"
+  [p-infinite-scroll]="true"
+  [p-fields]="fields"
+  [p-service-api]="serviceApi"
+>
+</po-page-dynamic-table>
+
+<po-page-dynamic-table
+    [p-actions-right]="true"
+    p-actions="PoPageDynamicTableActions"
+    p-auto-router="boolean"
+    p-breadcrumb="PoBreadcrumb"
+    (p-change-visible-columns)="EventEmitter"
+    (p-restore-column-manager)="EventEmitter"
+    p-concat-filters="boolean"
+    p-draggable="boolean"
+    p-fields="Array<PoPageDynamicTableFilters>"
+    p-height="number"
+    p-hide-close-disclaimers="Array<string>"
+    p-hide-columns-manager="boolean"
+    p-hide-remove-all-disclaimer="boolean"
+    p-infinite-scroll="boolean"
+    p-keep-filters="boolean"
+    p-load="string | (() => PoPageDynamicTableOptions)"
+    p-page-custom-actions="Array<PoPageDynamicTableCustomAction>"
+    p-quick-search-param="string"
+    p-quick-search-value="string"
+    p-quick-search-width="number"
+    p-literals="PoPageDynamicSearchLiterals"
+    p-service-api="string"
+    (p-sort-by)="EventEmitter"
+    p-spacing="PoTableColumnSpacing"
+    p-table-custom-actions="Array<PoPageDynamicTableCustomTableAction>"
+    p-text-wrap="boolean"
+    p-title="string" >
+</po-page-dynamic-table> -->

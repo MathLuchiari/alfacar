@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { WorkshopPage } from '../models/workshop/workshop-page.interface';
@@ -14,8 +14,15 @@ export class WorkshopService {
     private httpClient: HttpClient
   ) {}
 
-  get(): Observable<WorkshopPage> {
-    return this.httpClient.get<WorkshopPage>(`${environment.API}/workshops`);
+  get(page: number, pageSize: number, filter?: string, fields?: string, sort?: string): Observable<WorkshopPage> {
+    const parameters = new HttpParams()
+      .append('pageNumber', page ? page.toString() : '')
+      .append('pageSize', pageSize ? pageSize.toString() : '')
+      .append('FILTER', filter ? filter : '')
+      .append('FIELDS', fields ? fields : '')
+      .append('SORT', sort ? sort : 'id')
+
+    return this.httpClient.get<WorkshopPage>(`${environment.API}/workshops`, { params: parameters });
   }
 
   getById(id: string): Observable<Workshop> {
