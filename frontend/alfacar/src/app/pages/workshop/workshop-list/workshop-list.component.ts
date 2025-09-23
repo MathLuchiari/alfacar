@@ -68,6 +68,7 @@ export class WorkshopListComponent implements OnInit {
       { property: 'city', label: 'Cidade', visible: false },
       { property: 'neighborhood', label: 'Bairro', visible: false  },
       { property: 'address', label: 'Endereço', visible: false },
+      { property: 'zipCode', label: 'CEP', visible: false  },
       { property: 'zipCode', label: 'CEP', visible: false  }
     ];
   }
